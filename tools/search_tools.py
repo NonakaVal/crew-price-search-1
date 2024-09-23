@@ -13,6 +13,16 @@ import streamlit as st
 
 
 
+
+import json
+import os
+import requests
+from langchain.tools import tool
+from dotenv import load_dotenv
+
+
+
+
 api_key = st.secrets['SERPER_API_KEY']
 
 class SearchTools():
@@ -30,7 +40,7 @@ class SearchTools():
     query = f"site:instagram.com {query}"
     return SearchTools.search(query)
 
-  def search(query, n_results=15):
+  def search(query, n_results=12):
     url = "https://google.serper.dev/search"
     payload = json.dumps({"q": query})
     headers = {

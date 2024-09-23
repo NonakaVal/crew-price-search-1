@@ -31,7 +31,7 @@ else:
 # duckduckgo_search = DuckDuckGoSearchRun()
 
 #to keep track of tasks performed by agents
-# task_values = []
+task_values = []
 # def create_crewai_setup(product_name):
 #     # Definir número máximo de iterações
 #     max_iter = 70
@@ -102,8 +102,8 @@ def create_crewai_setup(product_name, llm):
         goal=f"""Realizar buscas em sites de e-commerce e marketplaces para coletar preços de {product_name} no mercado brasileiro em reais""",
         backstory=f"""Especialista em coleta de dados online, focado em encontrar o maior número de preços disponíveis em diversas plataformas.""",
         verbose=True,
-        allow_delegation=True,
-        tools=[SearchTools.search_internet, BrowserTools.scrape_and_summarize_website, ScrapeWebsiteTool(), WebsiteSearchTool()],
+        allow_delegation=False,
+        tools=[ScrapeWebsiteTool(), WebsiteSearchTool()],
         llm=llm,
         max_iter=max_iter
     )
@@ -113,8 +113,8 @@ def create_crewai_setup(product_name, llm):
         goal=f"""Analisar as especificações técnicas e variações de {product_name} nos diferentes sites para garantir a compatibilidade e consistência das ofertas.""",
         backstory=f"""Especialista em análise de especificações de produtos, com foco em verificar as diferenças e similaridades entre ofertas.""",
         verbose=True,
-        allow_delegation=True,
-        tools=[SearchTools.search_internet, BrowserTools.scrape_and_summarize_website, ScrapeWebsiteTool(), WebsiteSearchTool()],
+        allow_delegation=False,
+        tools=[ScrapeWebsiteTool(), WebsiteSearchTool()],
         llm=llm,
         max_iter=max_iter
     )
@@ -124,8 +124,8 @@ def create_crewai_setup(product_name, llm):
         goal=f"""Comparar os preços coletados para determinar o menor, o maior e a média de preços para {product_name}, incluindo uma análise das variações e descontos.""",
         backstory=f"""Especialista em análise de preços, com experiência em identificar variações de preços, descontos e padrões de flutuação.""",
         verbose=True,
-        allow_delegation=True,
-        tools=[SearchTools.search_internet, BrowserTools.scrape_and_summarize_website, ScrapeWebsiteTool(), WebsiteSearchTool()],
+        allow_delegation=False,
+        tools=[ ScrapeWebsiteTool(), WebsiteSearchTool()],
         llm=llm,
         max_iter=max_iter
     )
@@ -135,8 +135,8 @@ def create_crewai_setup(product_name, llm):
         goal=f"""Analisar avaliações e classificações de clientes para {product_name}, identificando padrões de satisfação e insatisfação entre as ofertas.""",
         backstory=f"""Especialista em análise de feedback de clientes, focado em entender a qualidade percebida e os principais pontos positivos e negativos.""",
         verbose=True,
-        allow_delegation=True,
-        tools=[SearchTools.search_internet, BrowserTools.scrape_and_summarize_website, ScrapeWebsiteTool(), WebsiteSearchTool()],
+        allow_delegation=False,
+        tools=[ScrapeWebsiteTool(), WebsiteSearchTool()],
         llm=llm,
         max_iter=max_iter
     )
