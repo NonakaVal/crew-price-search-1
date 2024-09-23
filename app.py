@@ -287,7 +287,7 @@ def run_crewai_app():
         with st.expander("Processing!"):
             sys.stdout = StreamToExpander(st)
             with st.spinner("Generating Results"):
-                crew_result = create_crewai_setup(product_name,llm=llm)
+                crew_result = create_crewai_setup(product_name=product_name,llm=llm)
 
         # Stop the stopwatch
         end_time = time.time()
